@@ -16,7 +16,7 @@ describe('Test Async Books', () => {
             expect(books).to.be.an('object');
             expect(books.items).to.satisfy(function(items) {
                 return items.every(function(item) {
-                    return patt.test(item.volumeInfo.title);
+                    return patt.test(item.volumeInfo.title) || patt.test(item.volumeInfo.description);
                 });
             });
            done();
